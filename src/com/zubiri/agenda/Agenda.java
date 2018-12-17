@@ -181,6 +181,9 @@ public class Agenda {
 		return kontaktuak.get(index(name));
 	}
 
+	/**
+	 * It orders all the contacts alphabetically
+	 */
 	public void order() {
 		boolean flag = true;
 		while (flag) {

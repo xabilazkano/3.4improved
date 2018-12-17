@@ -12,18 +12,18 @@ public class Agenda {
 
 	private ArrayList<Contact> kontaktuak = new ArrayList<Contact>();
 	private ArrayList<Contact> favourites = new ArrayList<Contact>();
-	
+
 	public ArrayList<Contact> getfavourites() {
 		return this.favourites;
 	}
-	
-	public void  setfavourites(ArrayList<Contact> _favourites){
-		this.favourites=_favourites;
+
+	public void setfavourites(ArrayList<Contact> _favourites) {
+		this.favourites = _favourites;
 	}
-	
-	//public void addFavourite{
-		
-	//}
+
+	// public void addFavourite{
+
+	// }
 	/**
 	 * Returns the contact arrayList
 	 * 
@@ -42,9 +42,6 @@ public class Agenda {
 	public void setKontaktuak(ArrayList<Contact> _kontaktuak) {
 		this.kontaktuak = _kontaktuak;
 	}
-	
-
-	
 
 	/**
 	 * Adds a contact
@@ -100,7 +97,7 @@ public class Agenda {
 		for (int i = 0; i < kontaktuak.size(); i++) {
 
 			kontaktuak.remove(i);
-			
+
 		}
 		System.out.println("All the contacts were deleted");
 
@@ -167,19 +164,40 @@ public class Agenda {
 
 		}
 	}
-	
+
+	public void addFav(String name) {
+		favourites.add(kontaktuak.get(index(name)));
+		System.out.println("Succesfuly added");
+
+	}
+
+	public void readFav() {
+		for (int i = 0; i < favourites.size(); i++) {
+			System.out.println(favourites.get(i).getContact());
+		}
+	}
+
+	public Contact receiveContact(String name) {
+		return kontaktuak.get(index(name));
+	}
+
 	public void order() {
-		for (int i = 0;i<kontaktuak.size()-1;i++) {
-			int num= kontaktuak.get(i).getPerson().getName().compareTo(kontaktuak.get(i+1).getPerson().getName());
-			if (num>0) {
-				Contact aux= kontaktuak.get(i);
-				kontaktuak.set(i, kontaktuak.get(i+1));
-				kontaktuak.set(i+1, aux);
+		boolean flag = true;
+		while (flag) {
+			flag=false;
+			for (int i = 0; i < kontaktuak.size() - 1; i++) {
+				int num = kontaktuak.get(i).getPerson().getName()
+						.compareTo(kontaktuak.get(i + 1).getPerson().getName());
+				if (num > 0) {
+					Contact aux = kontaktuak.get(i);
+					kontaktuak.set(i, kontaktuak.get(i + 1));
+					kontaktuak.set(i + 1, aux);
+					flag=true;
+				}
 			}
 		}
 		System.out.println("Contacts ordered");
 	}
-	
 
 	/**
 	 * Finds the index of a contact

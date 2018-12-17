@@ -1,10 +1,13 @@
 package com.zubiri.agenda;
 
-public class Contact extends Agenda {
+import java.util.ArrayList;
+
+public class Contact {
 
 	private Person pertsona;
 	private int number;
 	private String address;
+	private ArrayList<Note> notes = new ArrayList<Note>();
 
 	/**
 	 * Default constructor
@@ -73,6 +76,23 @@ public class Contact extends Agenda {
 		return this.address;
 	}
 	
+	public ArrayList<Note> getNotes(){
+		return this.notes;
+	}
+	
+	public void setNotes(ArrayList<Note> notes2) {
+		this.notes=notes2;
+	}
+	
+	public void addNote(Note note) {
+		notes.add(note);
+	}
+	
+	public void readNotes() {
+		for (int i=0;i<notes.size();i++) {
+			System.out.println(notes.get(i).notetotext());
+		}
+	}
 	/**Gets the contact
 	 * 
 	 * @return Returns all the information of the contact

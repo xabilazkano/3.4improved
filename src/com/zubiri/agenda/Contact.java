@@ -76,18 +76,33 @@ public class Contact {
 		return this.address;
 	}
 	
+	/**
+	 * Gets the list of notes
+	 * @return
+	 */
 	public ArrayList<Note> getNotes(){
 		return this.notes;
 	}
 	
+	/**
+	 * Sets a new list of notes
+	 * @param notes2 an arraylist of notes
+	 */
 	public void setNotes(ArrayList<Note> notes2) {
 		this.notes=notes2;
 	}
 	
+	/**
+	 * Adds a note
+	 * @param note an object of type note
+	 */
 	public void addNote(Note note) {
 		notes.add(note);
 	}
 	
+	/**
+	 * Reads all the notes
+	 */
 	public void readNotes() {
 		for (int i=0;i<notes.size();i++) {
 			System.out.println(notes.get(i).notetotext());

@@ -21,9 +21,7 @@ public class Agenda {
 		this.favourites = _favourites;
 	}
 
-	// public void addFavourite{
 
-	// }
 	/**
 	 * Returns the contact arrayList
 	 * 
@@ -70,6 +68,9 @@ public class Agenda {
 		}
 	}
 
+	/**
+	 * Reads all the contacts
+	 */
 	public void readAll() {
 
 		for (int i = 0; i < kontaktuak.size(); i++) {
@@ -93,6 +94,9 @@ public class Agenda {
 		}
 	}
 
+	/**
+	 * Deletes all the contacts
+	 */
 	public void deleteAll() {
 		for (int i = 0; i < kontaktuak.size(); i++) {
 
@@ -165,18 +169,31 @@ public class Agenda {
 		}
 	}
 
+	/**
+	 * Adds a contact to favorites
+	 * @param name name of the contact
+	 */
 	public void addFav(String name) {
 		favourites.add(kontaktuak.get(index(name)));
 		System.out.println("Succesfuly added");
 
 	}
 
+	/**
+	 * Reads all the favorites 
+	 */
 	public void readFav() {
 		for (int i = 0; i < favourites.size(); i++) {
 			System.out.println(favourites.get(i).getContact());
 		}
 	}
 
+	/**
+	 * Returns an specific contact
+	 * @param name name of the contact
+	 * @return a contact object
+	 */
+	
 	public Contact receiveContact(String name) {
 		return kontaktuak.get(index(name));
 	}
